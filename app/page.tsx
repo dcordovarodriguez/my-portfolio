@@ -35,6 +35,11 @@ export default function Home() {
               collapsed state stays scannable, then opens into a more technical
               explanation with a clearer machine-learning pipeline.
             </p>
+            <div className={styles.heroChips} aria-label="Project themes">
+              <span className={styles.heroChip}>Interface Design</span>
+              <span className={styles.heroChip}>Signal Processing</span>
+              <span className={styles.heroChip}>Applied Machine Learning</span>
+            </div>
           </div>
 
           <aside className={styles.heroMeta} aria-label="Inspiration details">
@@ -49,36 +54,69 @@ export default function Home() {
                 default project grid feel heavy or crowded.
               </p>
             </div>
+            <div>
+              <p className={styles.metaLabel}>Design Direction</p>
+              <p className={styles.metaValue}>
+                Soft blue gradients, strong spacing, and progressive disclosure
+                so the portfolio feels polished before the user even opens a
+                project.
+              </p>
+            </div>
           </aside>
         </section>
 
         <section className={styles.projectsSection} aria-labelledby="projects-heading">
-          <h2 id="projects-heading" className={styles.sectionHeading}>
-            Expandable BCI project card
-          </h2>
-          <p className={styles.sectionText}>
-            Click the card to expand the project details, inspect the EEG
-            classification pipeline, and collapse it again when you want to
-            return to a compact portfolio view.
-          </p>
+          <div className={styles.sectionIntro}>
+            <div>
+              <p className={styles.sectionEyebrow}>Selected Interaction</p>
+              <h2 id="projects-heading" className={styles.sectionHeading}>
+                Expandable BCI project card
+              </h2>
+            </div>
+            <p className={styles.sectionText}>
+              Click the card to expand the project details, inspect the EEG
+              classification pipeline, and collapse it again when you want to
+              return to a compact portfolio view.
+            </p>
+          </div>
 
-          <ExpandableProjectCard
-            title="EEG Blink-Controlled Flappy Bird"
-            subtitle="Brain-Computer Interface / Signal Processing / Machine Learning"
-            shortDescription="A real-time BCI project that translates EEG blink activity into game-control commands."
-            pipeline={pipeline}
-            techTags={techTags}
-            links={[
-              {
-                label: "View GitHub",
-                href: "https://github.com/mahdibeit/EEG-BasedBCI",
-              },
-              {
-                label: "Read Case Study",
-                href: "https://mahdibeit.github.io/",
-              },
-            ]}
-          />
+          <div className={styles.projectGrid}>
+            <ExpandableProjectCard
+              title="EEG Blink-Controlled Flappy Bird"
+              subtitle="Brain-Computer Interface / Signal Processing / Machine Learning"
+              shortDescription="A real-time BCI project that translates EEG blink activity into game-control commands."
+              pipeline={pipeline}
+              techTags={techTags}
+              links={[
+                {
+                  label: "View GitHub",
+                  href: "https://github.com/mahdibeit/EEG-BasedBCI",
+                },
+                {
+                  label: "Read Case Study",
+                  href: "https://mahdibeit.github.io/",
+                },
+              ]}
+            />
+
+            <aside className={styles.projectSidebar} aria-label="Project summary">
+              <div className={styles.sidebarPanel}>
+                <p className={styles.panelLabel}>What opens up</p>
+                <p className={styles.panelText}>
+                  The expanded state reveals the technical pipeline, tools, and
+                  supporting links without forcing that detail into the default
+                  browsing view.
+                </p>
+              </div>
+              <div className={styles.sidebarPanel}>
+                <p className={styles.panelLabel}>Why it helps</p>
+                <p className={styles.panelText}>
+                  Recruiters can scan quickly, while classmates or instructors
+                  can open the card to see the real modeling workflow.
+                </p>
+              </div>
+            </aside>
+          </div>
         </section>
 
         <section className={styles.notes} aria-labelledby="notes-heading">

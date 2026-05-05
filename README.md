@@ -1,49 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and configured for GitHub Pages deployment.
+# TritonNav Portfolio
 
-## Getting Started
+TritonNav Portfolio is a Next.js App Router site for Diego Cordova Rodriguez. It works as both a professional portfolio and a design-class project submission, with TritonNav featured as the flagship product concept.
 
-First, run the development server:
+## What It Does
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Introduces Diego Cordova Rodriguez as a UCSD Cognitive Science Design/HCI student
+- Showcases portfolio projects through reusable, data-driven project pages
+- Features TritonNav, a UCSD campus navigation MVP focused on buildings, entrances, rooms, and college areas
+- Uses dynamic route-generated pages for both portfolio projects and TritonNav buildings
+
+## Tech Stack
+
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+- lucide-react
+- GitHub
+- Vercel-ready deployment setup
+
+## Pages Included
+
+- `/` home page
+- `/projects` project index
+- `/projects/[slug]` dynamic project detail page
+- `/tritonnav` TritonNav product page
+- `/tritonnav/buildings` building directory
+- `/tritonnav/buildings/[id]` dynamic building detail page
+- `/about` about page
+- `/contact` contact page
+
+## Assignment Requirements Satisfied
+
+- Built with Next.js in a meaningful way
+- Includes more than three pages
+- Includes route-generated pages with `generateStaticParams`
+  - `/projects/[slug]`
+  - `/tritonnav/buildings/[id]`
+- Ready to submit with a GitHub source link and hosted deployment link
+
+## Dynamic Routes Explained
+
+Project case studies are stored in `src/data/projects.ts` and rendered through `/projects/[slug]`.
+
+Building data for TritonNav is stored in `src/data/buildings.ts` and rendered through `/tritonnav/buildings/[id]`.
+
+Both route types use `generateStaticParams`, which means the site can statically export every project and building page at build time.
+
+## File Structure
+
+```text
+src/
+  app/
+    page.tsx
+    projects/
+      page.tsx
+      [slug]/page.tsx
+    tritonnav/
+      page.tsx
+      buildings/
+        page.tsx
+        [id]/page.tsx
+    about/page.tsx
+    contact/page.tsx
+  components/
+    Navbar.tsx
+    Footer.tsx
+    Hero.tsx
+    ProjectCard.tsx
+    BuildingCard.tsx
+    BuildingDirectory.tsx
+    SectionHeading.tsx
+    CTAButton.tsx
+    Tag.tsx
+    FeatureCard.tsx
+  data/
+    projects.ts
+    buildings.ts
+  lib/
+    utils.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How To Run Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open:
 
-## Deployment
+```text
+http://localhost:3000
+```
 
-This repo is set up to publish to GitHub Pages at:
-
-- [https://dcordovarodriguez.github.io/my-portfolio/](https://dcordovarodriguez.github.io/my-portfolio/)
-
-Useful scripts:
+## Production Build
 
 ```bash
 npm run build
+```
+
+## Deployment Instructions
+
+### Vercel
+
+1. Push the repo to GitHub.
+2. Import the repository into Vercel.
+3. Keep the default build command:
+
+```bash
+npm run build
+```
+
+4. Deploy.
+
+This is the recommended path for eventually replacing the current Wix Studio version of diegocordova.net.
+
+### GitHub Pages
+
+This repo also keeps a GitHub Pages export path for the existing `my-portfolio` repository:
+
+```bash
 npm run deploy
 ```
 
-`npm run deploy` builds a static export into `out/` and publishes it to the `gh-pages` branch using the `gh-pages` package.
+That script sets the GitHub Pages base path and publishes the static `out/` folder to the `gh-pages` branch.
 
-## Learn More
+## Future Plans For TritonNav
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Notes
-
-For GitHub Pages, this app uses Next.js static export mode with a production `basePath` of `/my-portfolio`.
+- Expand the building dataset beyond the starter set
+- Add route previews between buildings and lecture spaces
+- Include accessibility, elevation, and entrance-condition notes
+- Explore user testing with first-years, transfers, and campus visitors
+- Turn the building directory into a richer campus wayfinding system over time

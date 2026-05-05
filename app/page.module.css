@@ -1,0 +1,141 @@
+.page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(85, 117, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, #f5f8fc 0%, #eef2f7 100%);
+  color: #162033;
+}
+
+.main {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4.5rem 0 5rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.heroText {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #61738c;
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.lede {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #445875;
+}
+
+.heroMeta {
+  display: grid;
+  gap: 1rem;
+  padding: 1.35rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(18, 28, 45, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07);
+  backdrop-filter: blur(12px);
+}
+
+.metaLabel {
+  margin: 0 0 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #62728a;
+}
+
+.metaValue {
+  margin: 0;
+  line-height: 1.65;
+  color: #21314a;
+}
+
+.projectsSection {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.sectionHeading {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.1;
+}
+
+.sectionText {
+  margin: 0;
+  max-width: 65ch;
+  color: #4c607d;
+  line-height: 1.75;
+}
+
+.notes {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(18, 28, 45, 0.08);
+}
+
+.notesTitle {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.notesList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #42556f;
+  line-height: 1.7;
+}
+
+.notesList li + li {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 860px) {
+  .main {
+    width: min(100% - 1.25rem, 1100px);
+    padding-top: 3.5rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    width: min(100% - 1rem, 1100px);
+    padding-bottom: 3.5rem;
+  }
+
+  .heroMeta,
+  .notes {
+    padding: 1.05rem;
+  }
+}

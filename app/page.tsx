@@ -1,66 +1,105 @@
-import Image from "next/image";
+import ExpandableProjectCard from "../components/ExpandableProjectCard";
+import styles from "./page.module.css";
 
-const basePath = process.env.NODE_ENV === "production" ? "/my-portfolio" : "";
+const pipeline = [
+  "EEG acquisition using OpenBCI",
+  "Bandpass filtering from 1–10 Hz",
+  "Blink/rest segmentation",
+  "CSP spatial filtering",
+  "Log-variance feature extraction",
+  "LDA classification",
+  "Prediction converted into a Flappy Bird jump command",
+];
+
+const techTags = [
+  "EEG",
+  "OpenBCI",
+  "Python",
+  "CSP",
+  "LDA",
+  "scikit-learn",
+  "HCI",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src={`${basePath}/next.svg`}
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <section className={styles.hero}>
+          <div className={styles.heroText}>
+            <p className={styles.kicker}>Projects</p>
+            <h1 className={styles.headline}>Signals, models, and interaction.</h1>
+            <p className={styles.lede}>
+              This sample project card recreates the kind of compact-to-detailed
+              interaction I liked in Mahdi Beitollahi&apos;s portfolio. The
+              collapsed state stays scannable, then opens into a more technical
+              explanation with a clearer machine-learning pipeline.
+            </p>
+          </div>
+
+          <aside className={styles.heroMeta} aria-label="Inspiration details">
+            <div>
+              <p className={styles.metaLabel}>Inspired By</p>
+              <p className={styles.metaValue}>Mahdi Beitollahi&apos;s portfolio</p>
+            </div>
+            <div>
+              <p className={styles.metaLabel}>Interaction Goal</p>
+              <p className={styles.metaValue}>
+                Reveal deeper technical detail on demand without making the
+                default project grid feel heavy or crowded.
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        <section className={styles.projectsSection} aria-labelledby="projects-heading">
+          <h2 id="projects-heading" className={styles.sectionHeading}>
+            Expandable BCI project card
+          </h2>
+          <p className={styles.sectionText}>
+            Click the card to expand the project details, inspect the EEG
+            classification pipeline, and collapse it again when you want to
+            return to a compact portfolio view.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src={`${basePath}/vercel.svg`}
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+          <ExpandableProjectCard
+            title="EEG Blink-Controlled Flappy Bird"
+            subtitle="Brain-Computer Interface / Signal Processing / Machine Learning"
+            shortDescription="A real-time BCI project that translates EEG blink activity into game-control commands."
+            pipeline={pipeline}
+            techTags={techTags}
+            links={[
+              {
+                label: "View GitHub",
+                href: "https://github.com/mahdibeit/EEG-BasedBCI",
+              },
+              {
+                label: "Read Case Study",
+                href: "https://mahdibeit.github.io/",
+              },
+            ]}
+          />
+        </section>
+
+        <section className={styles.notes} aria-labelledby="notes-heading">
+          <h2 id="notes-heading" className={styles.notesTitle}>
+            Why this interaction works
+          </h2>
+          <ol className={styles.notesList}>
+            <li>
+              It preserves visual hierarchy by keeping the default project state
+              short and scannable.
+            </li>
+            <li>
+              It introduces progressive disclosure, so technical depth only
+              appears when the user asks for it.
+            </li>
+            <li>
+              It makes a portfolio feel more alive without distracting from the
+              content itself.
+            </li>
+          </ol>
+        </section>
       </main>
     </div>
   );

@@ -1,98 +1,53 @@
-# TritonNav Portfolio
+# Dashi Sushi Prototype
 
-TritonNav Portfolio is a Next.js App Router site for Diego Cordova Rodriguez. It works as both a professional portfolio and a design-class project submission, with TritonNav featured as the flagship product concept.
+Presentable prototype checkpoint for the Dashi Sushi website. This version preserves the current mobile-first visual direction, real Dashi photography, menu structure, walk-in-first customer flow, subtle animations, and review section so it can be opened locally or deployed as a Vercel preview.
 
-## What It Does
+## Project Purpose
 
-- Introduces Diego Cordova Rodriguez as a UCSD Cognitive Science Design/HCI student
-- Showcases portfolio projects through reusable, data-driven project pages
-- Features TritonNav, a UCSD campus navigation MVP focused on buildings, entrances, rooms, and college areas
-- Uses dynamic route-generated pages for both portfolio projects and TritonNav buildings
+This project is a production-oriented prototype for Dashi Sushi in Hillcrest, San Diego. It is intended for client review and preview deployment, not as the final launch build.
 
-## Tech Stack
+The prototype focuses on:
 
-- Next.js App Router
-- React
-- TypeScript
-- Tailwind CSS
-- lucide-react
-- GitHub
-- Vercel-ready deployment setup
+- Mobile-first restaurant browsing
+- Real Dashi food, team, exterior, and interior imagery
+- Menu discovery and featured dishes
+- Walk-in-first visit behavior
+- Real review excerpts from Google screenshots provided for the prototype
+- Lightweight motion and hover polish with reduced-motion support
 
-## Pages Included
+## Setup Steps
 
-- `/` home page
-- `/projects` project index
-- `/projects/[slug]` dynamic project detail page
-- `/tritonnav` TritonNav product page
-- `/tritonnav/buildings` building directory
-- `/tritonnav/buildings/[id]` dynamic building detail page
-- `/about` about page
-- `/contact` contact page
-
-## Assignment Requirements Satisfied
-
-- Built with Next.js in a meaningful way
-- Includes more than three pages
-- Includes route-generated pages with `generateStaticParams`
-  - `/projects/[slug]`
-  - `/tritonnav/buildings/[id]`
-- Ready to submit with a GitHub source link and hosted deployment link
-
-## Dynamic Routes Explained
-
-Project case studies are stored in `src/data/projects.ts` and rendered through `/projects/[slug]`.
-
-Building data for TritonNav is stored in `src/data/buildings.ts` and rendered through `/tritonnav/buildings/[id]`.
-
-Both route types use `generateStaticParams`, which means the site can statically export every project and building page at build time.
-
-## File Structure
-
-```text
-src/
-  app/
-    page.tsx
-    projects/
-      page.tsx
-      [slug]/page.tsx
-    tritonnav/
-      page.tsx
-      buildings/
-        page.tsx
-        [id]/page.tsx
-    about/page.tsx
-    contact/page.tsx
-  components/
-    Navbar.tsx
-    Footer.tsx
-    Hero.tsx
-    ProjectCard.tsx
-    BuildingCard.tsx
-    BuildingDirectory.tsx
-    SectionHeading.tsx
-    CTAButton.tsx
-    Tag.tsx
-    FeatureCard.tsx
-  data/
-    projects.ts
-    buildings.ts
-  lib/
-    utils.ts
-```
-
-## How To Run Locally
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Run the local dev server:
+
+```bash
 npm run dev
 ```
 
-Then open:
+Open:
 
 ```text
 http://localhost:3000
 ```
+
+The Dashi prototype is also available at:
+
+```text
+http://localhost:3000/dashi-sushi
+```
+
+## Local Dev Command
+
+```bash
+npm run dev
+```
+
+The dev command uses the webpack dev server for this checkpoint because it is stable with the current Next.js 16 desktop environment.
 
 ## Production Build
 
@@ -104,32 +59,68 @@ npm run build
 
 ### Vercel
 
-1. Push the repo to GitHub.
-2. Import the repository into Vercel.
-3. Keep the default build command:
+Recommended deployment target:
+
+- GitHub repo: `dashi-sushi-prototype`
+- Vercel project: `dashi-sushi-prototype`
+- Preview URL: `https://dashi-sushi-prototype.vercel.app`
+
+Deploy through Vercel:
+
+1. Push this repo to GitHub as `dashi-sushi-prototype`.
+2. In Vercel, create/import a project named `dashi-sushi-prototype`.
+3. Keep the default install command:
+
+```bash
+npm install
+```
+
+4. Keep the default build command:
 
 ```bash
 npm run build
 ```
 
-4. Deploy.
+5. Deploy.
 
-This is the recommended path for eventually replacing the current Wix Studio version of diegocordova.net.
+No required environment variables are currently needed.
 
 ### GitHub Pages
 
-This repo also keeps a GitHub Pages export path for the existing `my-portfolio` repository:
+The repo still includes a static export deployment script:
 
 ```bash
 npm run deploy
 ```
 
-That script sets the GitHub Pages base path and publishes the static `out/` folder to the `gh-pages` branch.
+Vercel is the recommended deployment path for this checkpoint.
 
-## Future Plans For TritonNav
+## Current Prototype Status
 
-- Expand the building dataset beyond the starter set
-- Add route previews between buildings and lecture spaces
-- Include accessibility, elevation, and entrance-condition notes
-- Explore user testing with first-years, transfers, and campus visitors
-- Turn the building directory into a richer campus wayfinding system over time
+Checkpoint name: `dashi-prototype-v1`
+
+Status:
+
+- Presentable mobile-first prototype
+- Root route loads the Dashi prototype
+- `/dashi-sushi` route remains available
+- Walk-in-first CTAs replace reservation/request-table flows
+- Real Dashi menu page-one data is represented
+- Real Dashi photos are copied into `public/images/dashi`
+- Real review excerpts are included from provided Google review screenshots
+- Lint and production build pass
+
+Known caveats:
+
+- Public email still needs confirmation before final launch
+- Review text is based on provided screenshots and should be rechecked before client/public release
+- Hours should be verified before final launch
+- Vercel/GitHub deployment credentials must be available on the machine or through connected services
+
+## Future Work
+
+- Replace any remaining placeholder or uncertain photos with final approved real Dashi photos
+- Update menu items, prices, hours, and public contact details before launch
+- Refine the Squarespace-inspired layout direction after stakeholder feedback
+- Prepare a client feedback version with final copy and verified restaurant details
+- Add final analytics, SEO images, favicon set, and production booking/contact decisions

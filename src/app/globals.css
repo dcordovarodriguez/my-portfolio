@@ -46,3 +46,53 @@ select {
 ::selection {
   background: rgba(14, 165, 233, 0.18);
 }
+
+.dashi-site {
+  --dashi-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dashi-site .hero-zoom {
+  animation: dashi-hero-zoom 18s var(--dashi-ease) infinite alternate;
+  transform-origin: center;
+}
+
+.dashi-site .reveal {
+  animation: dashi-fade-up 760ms var(--dashi-ease) both;
+}
+
+@keyframes dashi-hero-zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes dashi-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .dashi-site *,
+  .dashi-site *::before,
+  .dashi-site *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

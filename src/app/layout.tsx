@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
+import { SiteChrome } from "@/components/SiteChrome";
 
 import "./globals.css";
 
@@ -18,11 +17,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Diego Cordova Rodriguez | TritonNav Portfolio",
-    template: "%s | Diego Cordova Rodriguez",
+    default: "Dashi Sushi Prototype | Hillcrest San Diego",
+    template: "%s | Dashi Sushi Prototype",
   },
   description:
-    "A Next.js portfolio for Diego Cordova Rodriguez featuring TritonNav, BCI work, research, and product-focused UI/UX projects.",
+    "Presentable mobile-first Dashi Sushi website prototype with menu, walk-in guidance, real photos, reviews, and visit details.",
 };
 
 export default function RootLayout({
@@ -36,11 +35,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-screen text-slate-900">
-        <Navbar />
-        <div className="mx-auto flex min-h-[calc(100vh-80px)] w-full max-w-7xl flex-col px-4 sm:px-6 lg:px-8">
-          <main className="flex-1 py-10 sm:py-14">{children}</main>
-        </div>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

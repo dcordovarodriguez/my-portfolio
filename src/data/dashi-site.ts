@@ -9,7 +9,7 @@ export const dashiSite = {
   phoneHref: "tel:+16197396466",
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=503%20University%20Ave%2C%20San%20Diego%2C%20CA",
-  instagramHref: "https://www.instagram.com/dashisushi/",
+  instagramHref: "https://www.instagram.com/dashi.sd/?hl=en",
   emailStatus:
     "Public email pending final confirmation: aris@dashisd.com and info@dashid.com appear in source materials.",
   hoursNote: "Walk-ins are the priority. Call to confirm current service hours or larger-party availability.",

@@ -23,6 +23,39 @@ export type PortfolioProject = {
 
 export const PROJECTS: PortfolioProject[] = [
   {
+    slug: "multiclass-softmax-classifier",
+    title: "Multiclass Softmax Classifier From Scratch",
+    category: "Machine learning fundamentals",
+    summary:
+      "A NumPy implementation of multiclass Softmax regression that classifies Iris flower species from petal measurements without relying on a prebuilt classifier.",
+    problem:
+      "The goal was to understand multiclass classification from the inside out by building the training loop, Softmax probabilities, cross-entropy loss, gradients, and evaluation workflow directly rather than treating a model library as a black box.",
+    process: [
+      "Located the original COGS181 coursework notebook and verified the Iris setup: 150 samples, 3 species, 105 training samples, and 45 held-out test samples.",
+      "Cleaned the implementation into a focused Python project using vectorized NumPy operations for logits, Softmax probabilities, loss, gradients, and gradient descent.",
+      "Generated portfolio-ready visualizations for the training loss, learned decision regions, and test-set confusion matrix.",
+    ],
+    tools: ["Python", "NumPy", "Matplotlib", "scikit-learn datasets"],
+    outcome:
+      "Published a dedicated GitHub repository with a reproducible from-scratch classifier that reaches 100% accuracy on the deterministic 45-sample Iris test split.",
+    futureImprovements: [
+      "Add a short companion notebook that walks through the math step by step.",
+      "Compare the from-scratch implementation against a library baseline for context.",
+      "Extend the implementation with regularization and randomized train/test splits.",
+    ],
+    tags: ["Machine Learning", "NumPy", "Softmax", "Iris Dataset"],
+    year: "2026",
+    role: "ML implementation and documentation",
+    featured: true,
+    links: [
+      {
+        label: "View GitHub",
+        href: "https://github.com/dcordovarodriguez/multiclass-softmax-classifier",
+        external: true,
+      },
+    ],
+  },
+  {
     slug: "tritonnav",
     title: "TritonNav",
     category: "Campus navigation MVP",
